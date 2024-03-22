@@ -14,7 +14,7 @@ update_frequency = 60
 input_method = HiddenInputField
 
 [project]
-title = sample_3dmodel_gui_rt
+title = sample_3d_gui_rt
 
 [render]
 clear_color_red = 0.07
