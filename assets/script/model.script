@@ -1,0 +1,16 @@
+local URL_RT_VIEW = hash("/rt_view")
+local SET_RT_VIEW = hash("set_rt_view")
+
+function init(self)
+
+	msg.post("@render:", "use_stretch_projection", { near = -100, far = 400 })
+	--Calculate view for render target then send to render socket
+	local screen_pos = go.get_world_position(URL_RT_VIEW)
+	local screen_rot = go.get_world_rotation(URL_RT_VIEW)
+	local Ypositive = vmath.rotate(screen_rot , vmath.vector3(0, 1, 0))
+	local screen_forward = screen_pos + vmath.rotate(screen_rot , vmath.vector3(0, 0, -1))
+	local view = vmath.matrix4_look_at(screen_pos, screen_forward, Ypositive)
+	msg.post("@render:", SET_RT_VIEW, { view = view })
+
+	go.animate(".", "euler.y", go.PLAYBACK_LOOP_FORWARD, 360, go.EASING_LINEAR, 6) -- rotate Suzanne model
+end

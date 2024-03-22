@@ -1,0 +1,13 @@
+mesh: "/assets/model/suzanne.glb"
+skeleton: ""
+animations: ""
+default_animation: ""
+name: "suzanne"
+materials {
+  name: "default"
+  material: "/assets/material/suzanne.material"
+  textures {
+    sampler: "tex0"
+    texture: "/assets/texture/Suzanne_BaseColor.png"
+  }
+}

@@ -1,0 +1,5 @@
+script: "/assets/render/3D.render_script"
+render_resources {
+  name: "gui3d_rt"
+  path: "/assets/render/gui.render_target"
+}

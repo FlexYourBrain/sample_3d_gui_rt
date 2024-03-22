@@ -1,0 +1,12 @@
+uniform highp mat4 view_proj;
+
+attribute mediump vec3 position;
+attribute mediump vec2 texcoord0;
+
+varying mediump vec2 var_texcoord0;
+
+void main()
+{
+    var_texcoord0 = texcoord0;
+    gl_Position = view_proj * vec4(position.xyz, 1.0);
+}
