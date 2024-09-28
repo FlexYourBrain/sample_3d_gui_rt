@@ -1,9 +1,13 @@
-uniform highp mat4 view_proj;
+#version 140
 
-attribute mediump vec3 position;
-attribute mediump vec2 texcoord0;
+uniform vx_uniforms
+{
+mat4 view_proj;
+};
 
-varying mediump vec2 var_texcoord0;
+in vec3 position;
+in vec2 texcoord0;
+out vec2 var_texcoord0;
 
 void main()
 {

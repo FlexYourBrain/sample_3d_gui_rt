@@ -1,18 +1,21 @@
+#version 140
 
-attribute highp vec4 position;
-attribute mediump vec2 texcoord0;
-attribute mediump vec3 normal;
+uniform vx_uniforms
+{
+    mat4 mtx_worldview;
+    mat4 mtx_view;
+    mat4 mtx_proj;
+    mat4 mtx_normal;
+    vec4 light;
+};
 
-uniform mediump mat4 mtx_worldview;
-uniform mediump mat4 mtx_view;
-uniform mediump mat4 mtx_proj;
-uniform mediump mat4 mtx_normal;
-uniform mediump vec4 light;
-
-varying highp vec4 var_position;
-varying mediump vec3 var_normal;
-varying mediump vec2 var_texcoord0;
-varying mediump vec4 var_light;
+in vec4 position;
+in vec2 texcoord0;
+in vec3 normal;
+out vec4 var_position;
+out vec3 var_normal;
+out vec2 var_texcoord0;
+out vec4 var_light;
 
 void main()
 {
